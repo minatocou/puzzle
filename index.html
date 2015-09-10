@@ -13,49 +13,17 @@
     <meta name="x5-page-mode" content="app"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="css/jquery.gridly.css">
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-        }
-        .gridly{
-            margin: 5px;
-            position: relative;
-        }
-    </style>
 </head>
 <body>
 <div class="gridly">
 </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.gridly.js"></script>
+    <script src="js/puzzle.js"></script>
     <script>
-        var reordering = function($elements) {
-            console.log(111)
-        };
-        var reordered = function($elements) {
-            console.log(222)
-        };
-        var box=$('.gridly');
-        var num=100;
-        var column=Math.sqrt(num);
-        var width=parseInt($(window).width()-(10+(column-1)*5));
-        var setting={
-            boxWidth:width,
-            columns:column,
-            base:parseInt(width/column),
-            gutter:5,
-            callbacks: { reordering: reordering , reordered: reordered }
-        }
-        box.width(setting.boxWidth);
-        var html=[];
-        for(var i=0;i<num;i++){
-            var x=(i%column)*parseInt(width/column);
-            var y=parseInt(i/column)*parseInt(width/column);
-            var item=$('<div class="item"></div>').appendTo(box);
-            item.css({width:setting.base,height:setting.base,'backgroundImage':'url(images/m.jpg)','backgroundPosition':'-'+x+'px '+'-'+y+'px','backgroundSize':'auto '+width+'px'})
-        }
-        box.gridly(setting);
+        $(function(){
+            $('.gridly').puzzle({column:3,imgPath:'images/m.jpg'});
+        })
     </script>
 </body>
 </html>
