@@ -6,10 +6,7 @@
         this.box=ele;
         this.column=opts.column;
         this.imgPath=opts.imgPath;
-        this.createPanel();
-        if (callback) {
-            callback();
-        }
+        this.createPanel(callback);
     };
     puzzle.prototype = {
         imgPath:null,
@@ -23,13 +20,17 @@
                 callbacks: { reordering: this.reordering , reordered: this.reordered }
             }
         },
+        ram: function(){
+
+        },
         reordering : function($elements) {
             //拖动start
         },
         reordered : function($elements) {
             //拖动end
         },
-        createPanel: function(){
+
+        createPanel: function(callback){
             this.init();
             this.$box=$(this.box);
             this.$box.width(this.width);
@@ -39,7 +40,10 @@
                 var item=$('<div class="item"></div>').appendTo(this.$box);
                 item.css({width:this.setting.base,height:this.setting.base,'backgroundImage':'url('+this.imgPath+')','backgroundPosition':'-'+x+'px '+'-'+y+'px','backgroundSize':'auto '+this.width+'px'})
             }
-            this.$box.gridly(this.setting);
+            var $b=this.$box.gridly(this.setting);
+            if(callback){
+                callback($b);
+            }
         }
     };
 })(jQuery);
