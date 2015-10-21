@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head>
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport"
@@ -12,18 +12,86 @@
     <meta name="x5-fullscreen" content="true"/>
     <meta name="x5-page-mode" content="app"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="css/jquery.gridly.css">
+    <link rel="stylesheet" href="css/puzzle.css">
 </head>
 <body>
-<div class="gridly">
+<div class="bg">
+    <div align="center" class="page1">
+        <img src="images/banner.png" class="banner">
+        <ul class="mini">
+
+            <li data-product='{"id":"216","coupon":"BF5","discount":"5"}' data-img="images/us.jpg">
+                <img src="images/mini-a.jpg">
+                <b>北美</b>
+            </li><li data-product='{"id":"4137","coupon":"BF8","discount":"8"}' data-img="images/eu.jpg">
+            <img src="images/mini-b.jpg">
+            <b>欧洲</b>
+        </li><li data-product='{"id":"3159","coupon":"BF6","discount":"6"}' data-img="images/au.jpg">
+            <img src="images/mini-c.jpg">
+            <b>澳新</b>
+        </li>
+
+        </ul>
+    </div>
+
+    <div class="page2">
+        <div class="top">
+            <img src="images/top.png" width="100%">
+            <b>倒计时<span id="cd">5</span>S</b>
+        </div>
+        <div align="center" class="container" id='container'></div>
+    </div>
+    <div align="center" id="success-box" class="success-box">
+        <div class="text-box">
+            <img class="success-img" id="success-img" src="">
+            <div>哇，你只用了<span id="remain" class="y">0秒</span>就完成了拼图！</div>
+            <div>恭喜你获得手机限定折扣优惠码<a class="couponCode y"></a></div>
+            <p class="blue">请滑动到页面下方查看使用规则哦~</p>
+            <div class="btn-box">
+                <div>
+                    还可以拼的更快？
+                    <div reset-btn class=" btn">再玩一次</div>
+                </div>
+                <div>
+                    爱TA就带TA去旅行
+                    <div share-btn class="btn">分享到朋友圈</div>
+                </div>
+            </div>
+        </div>
+        <div class="tip-box">
+            <img src="images/pic-tip-a.png">
+            <p class="y">
+                太平洋时间11月26日0：00分<br>
+                路路行旅游网还有更多好玩的！
+            </p>
+            <img src="images/hot-word.png">
+        </div>
+        <div class="tip-box">
+            <img src="images/pic-tip-b.png">
+            <p align="left">
+                太平洋时间<span class="y">11月28日23：59前</span>，在路路行旅游网订购编号为<span class="productId"></span>的产品，结算时输入优惠码<a class="couponCode y">D11A5</a>即可享受<span class="y discount">8</span>折优惠！
+            </p>
+        </div>
+    </div>
+    <div align="center" class="fail-box" id="fail-box">
+        <i class="close-box"></i>
+        <img src="images/logo.png" class="logo">
+        <p class="fail-msg">矮油，差一点点就能成功了！</p>
+        <div class="btn-box">
+            <div>
+                <div reset-btn class=" btn">再玩一次</div>
+            </div>
+            <div>
+                <div share-btn class=" btn">分享到朋友圈</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask" id="mask"></div>
+<div class="fx">
+    <img src="images/fx.png">
 </div>
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.gridly.js"></script>
-<script src="js/puzzle.js"></script>
-<script>
-    $(function(){
-        $('.gridly').puzzle({column:3,imgPath:'images/m.jpg'});
-    })
-</script>
+<script src="js/game.js"></script>
 </body>
 </html>
